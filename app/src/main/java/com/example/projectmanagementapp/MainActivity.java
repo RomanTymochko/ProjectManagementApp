@@ -14,8 +14,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.net.URLEncoder;
-
 public class MainActivity extends AppCompatActivity {
     private WebView webView;
 
@@ -43,19 +41,11 @@ public class MainActivity extends AppCompatActivity {
 //        webSettings.setSafeBrowsingEnabled(true);
 
         webView.requestFocusFromTouch();
-//        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new WebViewClient());
 //        webView.setWebChromeClient(new WebChromeClient());
         webView.loadUrl("http://projectmngr.herokuapp.com");
 //        webView.loadUrl("http://google.com/");
-        webView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-                return super.onJsAlert(view, url, message, result);
-            }
-        });
     }
-
-
 
     @Override
     public void onBackPressed() {
